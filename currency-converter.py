@@ -4,7 +4,7 @@ import requests
 API_KEY = config.API_KEY
 BASE_URL = f"https://api.freecurrencyapi.com/v1/latest?apikey={API_KEY}"
 
-CURRENCIES = ["USD", "CAD", "EUR", "AUD", "CNY"]
+CURRENCIES = ["USD", "CAD", "EUR", "AUD", "CNY", "MXN"]
 
 
 def convert_currency(base):
@@ -19,25 +19,34 @@ def convert_currency(base):
         return None
 
 
-while True:
-    base = input("Enter the base currency (q for quit): ").upper()
-    # amount = float(input(f"Enter the amount of {base} (q for quit): "))
+def amount_to_convert():
+    while True:
+        amount = input(f"Enter the amount of {base} (q for quit): ").strip()
+        if amount.lower() == "q":
+            return None
 
-    # if base or amount == "Q":
-    #     break
+        try:
+            amount = float(amount)
+            return amount
+        except ValueError:
+            print("Invalid amount. Please enter a numeric value.")
+
+
+while True:
+    base = input("Enter the base currency (q for quit): ").strip().upper()
+
     if base == "Q":
         break
-
-    # if base not in CURRENCIES:
-    #     print(f"Cannot convert {base}")
 
     data = convert_currency(base)
     if not data:
         continue
 
-    # print(f"{data[base] * amount} {base} is ...")
-    print(f"{data[base]} {base} is ...")
+    amount = amount_to_convert()
+    if amount is None:
+        break
+
+    print(f"{data[base] * amount} {base} is ...")
     del data[base]
     for ticker, value in data.items():
-        # print(f"{ticker} : {value * amount}")
-        print(f"{ticker} : {value}")
+        print(f"{ticker} : {value * amount}")
