@@ -47,7 +47,7 @@ To get started with this application, you will need an API key from [Free Curren
 
 ## Notes
 
-- This application supports currencies: USD, CAD, EUR, AUD, CNY, MXN.
+- This application supports currencies: AUD, BGN, BRL, CAD, CHF, CNY, CZK, DKK, EUR, GBP, HKD, HRK, HUF, IDR, ILS, INR, ISK, JPY, KRW, MXN, MYR, NOK, NZD, PHP, PLN, RON, RUB, SEK, SGD, THB, TRY, USD, ZAR.
 - Enter 'Q' at any prompt to quit the application.
 
 ## Acknowledgments
