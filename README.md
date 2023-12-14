@@ -41,7 +41,14 @@ To get started with this application, you will need an API key from [Free Curren
 
 - Convert from one currency to multiple other currencies.
 - Retrieve the current exchange rates from the Free Currency API.
+- Input validation for base currency and amount input.
+- Continuous prompts for valid amount input in case of errors.
 - Simple and easy-to-understand user interface.
+
+## Notes
+
+- This application supports currencies: USD, CAD, EUR, AUD, CNY, MXN.
+- Enter 'Q' at any prompt to quit the application.
 
 ## Acknowledgments
 
