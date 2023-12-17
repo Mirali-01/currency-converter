@@ -4,7 +4,6 @@ import requests
 API_KEY = config.API_KEY
 BASE_URL = f"https://api.freecurrencyapi.com/v1/latest?apikey={API_KEY}"
 
-# Get a list of all currencies
 CURRENCIES = [
     "AUD",
     "BGN",
@@ -83,5 +82,6 @@ while True:
 
     print(f"{data[base] * amount} {base} is ...")
     del data[base]
+    print("{:<8} {:<15}".format("Ticker", "Converted Amount"))
     for ticker, value in data.items():
-        print(f"{ticker} : {value * amount}")
+        print("{:<8} {:<15}".format(ticker, value * amount))
