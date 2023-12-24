@@ -2,6 +2,42 @@ import { useState } from "react";
 import axios from "axios";
 import "./App.css";
 
+const currencies = [
+  "AUD",
+  "BGN",
+  "BRL",
+  "CAD",
+  "CHF",
+  "CNY",
+  "CZK",
+  "DKK",
+  "EUR",
+  "GBP",
+  "HKD",
+  "HRK",
+  "HUF",
+  "IDR",
+  "ILS",
+  "INR",
+  "ISK",
+  "JPY",
+  "KRW",
+  "MXN",
+  "MYR",
+  "NOK",
+  "NZD",
+  "PHP",
+  "PLN",
+  "RON",
+  "RUB",
+  "SEK",
+  "SGD",
+  "THB",
+  "TRY",
+  "USD",
+  "ZAR",
+];
+
 function App() {
   const [baseCurrency, setBaseCurrency] = useState("");
   const [amount, setAmount] = useState("");
@@ -33,8 +69,17 @@ function App() {
   return (
     <div className="App">
       <h1>Currency Converter</h1>
+      <div className="currency-list">
+        <h2>Available Currencies</h2>
+        <ul>
+          {currencies.map((currency, index) => (
+            <li key={index}>{currency}</li>
+          ))}
+        </ul>
+      </div>
+
       <div className="form-container">
-        <div>
+        <div className="input-container">
           <label>Base Currency:</label>
           <input
             type="text"
@@ -42,18 +87,18 @@ function App() {
             onChange={handleBaseCurrencyChange}
           />
         </div>
-        <div>
+        <div className="input-container">
           <label>Amount:</label>
           <input type="text" value={amount} onChange={handleAmountChange} />
         </div>
-        <button onClick={handleConvert}>Convert</button>
       </div>
+      <button onClick={handleConvert}>Convert</button>
 
       {error && <p>{error}</p>}
 
       {conversionData && (
         <div>
-          <h2>Converted Amounts:</h2>
+          <h2>Converted Amounts</h2>
           <table>
             <thead>
               <tr>
