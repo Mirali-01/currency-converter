@@ -1,0 +1,17 @@
+{
+  "name": "currency-converter",
+  "version": "1.0.0",
+  "description": "This is a simple currency converter application that utilizes the Free Currency API to convert between different currencies. This application allows users to input a base currency and obtain the current exchange rates for other selected currencies.",
+  "main": "app.py",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run server\" \"cd client && npm run start\"",
+    "server": "python3 app.py"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

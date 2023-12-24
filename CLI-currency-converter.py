@@ -2,7 +2,7 @@ import config
 import requests
 
 API_KEY = config.API_KEY
-BASE_URL = f"https://api.freecurrencyapi.com/v1/latest?apikey={API_KEY}"
+BASE_URL = f"https://api.freecurrencyapi.com/v1/latest"
 
 CURRENCIES = [
     "AUD",
@@ -42,10 +42,13 @@ CURRENCIES = [
 
 
 def convert_currency(base):
-    currencies = ",".join(CURRENCIES)
-    url = f"{BASE_URL}&base_currency={base}&currencies={currencies}"
+    params = {
+        "apikey": API_KEY,
+        "base_currency": base,
+        "currencies": ",".join(CURRENCIES),
+    }
     try:
-        response = requests.get(url)
+        response = requests.get(BASE_URL, params=params)
         data = response.json()
         return data["data"]
     except:
@@ -67,6 +70,7 @@ def amount_to_convert():
 
 
 while True:
+    print("Welcome to World Currency Converter (33 Countries)")
     base = input("Enter the base currency (q for quit): ").strip().upper()
 
     if base == "Q":
