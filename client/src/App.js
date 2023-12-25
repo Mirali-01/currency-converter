@@ -44,6 +44,13 @@ function App() {
   const [conversionData, setConversionData] = useState(null);
   const [error, setError] = useState(null);
 
+  const handleClear = () => {
+    setBaseCurrency("");
+    setAmount("");
+    setConversionData(null);
+    setError(null);
+  };
+
   const handleConvert = async () => {
     try {
       const response = await axios.post("http://localhost:5000/convert", {
@@ -66,6 +73,10 @@ function App() {
     setAmount(e.target.value);
   };
 
+  const handleCurrencyClick = (currency) => {
+    setBaseCurrency(currency);
+  };
+
   return (
     <div className="App">
       <h1>Currency Converter</h1>
@@ -73,7 +84,9 @@ function App() {
         <h2>Available Currencies</h2>
         <ul>
           {currencies.map((currency, index) => (
-            <li key={index}>{currency}</li>
+            <li key={index} onClick={() => handleCurrencyClick(currency)}>
+              {currency}
+            </li>
           ))}
         </ul>
       </div>
@@ -92,7 +105,10 @@ function App() {
           <input type="text" value={amount} onChange={handleAmountChange} />
         </div>
       </div>
-      <button onClick={handleConvert}>Convert</button>
+      <div className="buttons-container">
+        <button onClick={handleConvert}>Convert</button>
+        <button onClick={handleClear}>Clear</button>
+      </div>
 
       {error && <p>{error}</p>}
 

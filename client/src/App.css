@@ -68,6 +68,10 @@ h2 {
     justify-content: center;
     align-items: flex-end;
     gap: 5px;
+
+    label{
+        margin-right: 10px;
+    }
 }
 
 input[type="text"],
@@ -79,18 +83,27 @@ button {
   font-size: 1em;
 }
 
-button {
-    cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+/* Additional CSS for button layout */
+.buttons-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
   }
   
-button:hover {
+  .buttons-container button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buttons-container button:hover {
     background-color: #0056b3;
   }
-
-
+  
 table {
     border-collapse: collapse;
     width: 100%;
