@@ -1,42 +1,53 @@
-body{
+:root {
+    --primary-color: #3498db; 
+    --primary-hover-color: #2980b9; 
+    --border-color: #444; 
+    --background-color: #222; 
+    --text-color: #fff; 
+    --table-header-color: #333; 
+  }
+  
+  body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-}
-
-.App{
+    background-color: var(--background-color); 
+    color: var(--text-color);
+  }  
+  
+  .App {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
-}
-
-.currency-list {
+  }
+  
+  .currency-list {
     margin-bottom: 20px;
-    max-width: 600px; 
-    margin: 0 auto; 
-    padding: 10px; 
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
   }
   
   .currency-list h2 {
     font-size: 1.2em;
     margin-bottom: 10px;
   }
-
-.currency-list ul {
+  
+  .currency-list ul {
     list-style: none;
     padding: 0;
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 10px; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   
   .currency-list li {
-    padding: 8px 15px; 
-    border: 1px solid #ccc;
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -45,66 +56,72 @@ body{
   }
   
   .currency-list li:hover {
-    background-color: #f0f0f0;
+    border-color: var(--background-color);
+    background-color: var(--text-color);
+    color: var(--background-color);
   }
   
   .currency-list li span {
-    margin-right: 5px; 
+    margin-right: 5px;
   }
-
-h1 {
+  
+  h1 {
     font-size: 2em;
     margin-bottom: 20px;
   }
   
-h2 {
+  h2 {
     font-size: 1.5em;
     margin-bottom: 15px;
   }
-
-.form-container{
+  
+  .form-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
     gap: 5px;
+  }
+  
+  .form-container label {
+    margin-right: 10px;
+  }
 
-    label{
-        margin-right: 10px;
-    }
-}
-
-input[type="text"],
-button {
-  padding: 8px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 1em;
-}
-
-/* Additional CSS for button layout */
-.buttons-container {
+  input[type="text"]{
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  input[type="text"],
+  button {
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    font-size: 1em;
+  }
+  
+  .buttons-container {
     display: flex;
     gap: 10px;
     margin-top: 10px;
   }
   
   .buttons-container button {
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: #fff;
     padding: 8px 15px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
   .buttons-container button:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-hover-color);
   }
   
-table {
+  table {
     border-collapse: collapse;
     width: 100%;
     margin-top: 20px;
@@ -118,5 +135,5 @@ table {
   }
   
   table th {
-    background-color: #f2f2f2;
+    background-color: var(--table-header-color);
   }
