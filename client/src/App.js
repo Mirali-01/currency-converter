@@ -8,6 +8,7 @@ function App() {
   const [currencies, setCurrencies] = useState("");
   const [amount, setAmount] = useState("");
   const [conversionData, setConversionData] = useState(null);
+  const [currencyInfo, setCurrencyInfo] = useState([]);
   const [error, setError] = useState(null);
 
   const handleClear = () => {
@@ -15,6 +16,7 @@ function App() {
     setCurrencies("");
     setAmount("");
     setConversionData(null);
+    setCurrencyInfo([]);
     setError(null);
   };
 
@@ -24,7 +26,6 @@ function App() {
       const convertedCurrencies = currencies === "" ? "" : currencies;
       const response = await axios.post("http://localhost:5000/convert", {
         base_currency: convertedBaseCurrencies,
-        // base_currency: baseCurrency.toUpperCase(),
         currencies: convertedCurrencies,
         amount: amount,
       });
@@ -48,6 +49,11 @@ function App() {
     setAmount(e.target.value);
   };
 
+  const handleCurrencyInfoClick = (currency) => {
+    setCurrencyInfo(CurrencyInfo[currency]);
+    console.log(CurrencyInfo[currency]);
+  };
+
   return (
     <div className="App">
       <h1>Currency Converter</h1>
@@ -55,16 +61,24 @@ function App() {
         <h2>Available Currencies</h2>
         <ul>
           {Object.keys(CurrencyInfo).map((currency, index) => (
-            <li
-              key={index}
-              // onClick={() => handleCurrencyClick(currency)}
-            >
+            <li key={index} onClick={() => handleCurrencyInfoClick(currency)}>
               {currency}
             </li>
           ))}
         </ul>
       </div>
-
+      {currencyInfo && (
+        <div className="currency-info">
+          {Object.entries(currencyInfo).map(([key, value]) => (
+            <tbody>
+              <tr key={key}>
+                <td>{key}</td>
+                <td>{value}</td>
+              </tr>
+            </tbody>
+          ))}
+        </div>
+      )}
       <div className="form-container">
         <div className="input-container">
           <label>From:</label>
