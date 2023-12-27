@@ -1,51 +1,18 @@
 import { useState } from "react";
 import axios from "axios";
 import "./App.css";
-
-const currencies = [
-  "AUD",
-  "BGN",
-  "BRL",
-  "CAD",
-  "CHF",
-  "CNY",
-  "CZK",
-  "DKK",
-  "EUR",
-  "GBP",
-  "HKD",
-  "HRK",
-  "HUF",
-  "IDR",
-  "ILS",
-  "INR",
-  "ISK",
-  "JPY",
-  "KRW",
-  "MXN",
-  "MYR",
-  "NOK",
-  "NZD",
-  "PHP",
-  "PLN",
-  "RON",
-  "RUB",
-  "SEK",
-  "SGD",
-  "THB",
-  "TRY",
-  "USD",
-  "ZAR",
-];
+import CurrencyInfo from "./currencyInfo.json";
 
 function App() {
   const [baseCurrency, setBaseCurrency] = useState("");
+  const [currencies, setCurrencies] = useState("");
   const [amount, setAmount] = useState("");
   const [conversionData, setConversionData] = useState(null);
   const [error, setError] = useState(null);
 
   const handleClear = () => {
     setBaseCurrency("");
+    setCurrencies("");
     setAmount("");
     setConversionData(null);
     setError(null);
@@ -53,8 +20,12 @@ function App() {
 
   const handleConvert = async () => {
     try {
+      const convertedBaseCurrencies = baseCurrency === "" ? "" : baseCurrency;
+      const convertedCurrencies = currencies === "" ? "" : currencies;
       const response = await axios.post("http://localhost:5000/convert", {
-        base_currency: baseCurrency.toUpperCase(),
+        base_currency: convertedBaseCurrencies,
+        // base_currency: baseCurrency.toUpperCase(),
+        currencies: convertedCurrencies,
         amount: amount,
       });
       setConversionData(response.data);
@@ -69,12 +40,12 @@ function App() {
     setBaseCurrency(e.target.value);
   };
 
-  const handleAmountChange = (e) => {
-    setAmount(e.target.value);
+  const handleCurrencyChange = (e) => {
+    setCurrencies(e.target.value);
   };
 
-  const handleCurrencyClick = (currency) => {
-    setBaseCurrency(currency);
+  const handleAmountChange = (e) => {
+    setAmount(e.target.value);
   };
 
   return (
@@ -83,8 +54,11 @@ function App() {
       <div className="currency-list">
         <h2>Available Currencies</h2>
         <ul>
-          {currencies.map((currency, index) => (
-            <li key={index} onClick={() => handleCurrencyClick(currency)}>
+          {Object.keys(CurrencyInfo).map((currency, index) => (
+            <li
+              key={index}
+              // onClick={() => handleCurrencyClick(currency)}
+            >
               {currency}
             </li>
           ))}
@@ -93,11 +67,20 @@ function App() {
 
       <div className="form-container">
         <div className="input-container">
-          <label>Base Currency:</label>
+          <label>From:</label>
           <input
             type="text"
+            maxLength={3}
+            placeholder="USD"
             value={baseCurrency}
             onChange={handleBaseCurrencyChange}
+          />
+          <label>To:</label>
+          <input
+            type="text"
+            maxLength={3}
+            value={currencies}
+            onChange={handleCurrencyChange}
           />
         </div>
         <div className="input-container">

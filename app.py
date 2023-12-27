@@ -46,23 +46,27 @@ CURRENCIES = [
     "ZAR",
 ]
 
+# Example API request
+# API_REQ = f"{BASE_URL}?apikey={API_KEY}&currencies=EUR&base_currency=CAD"
 
-def convert_currency(base, amount):
+
+def convert_currency(base, currencies, amount):
+    if base == "":
+        base = ""
+    if currencies == "":
+        currencies = ""
+
     params = {
         "apikey": API_KEY,
         "base_currency": base,
-        "currencies": ",".join(CURRENCIES),
+        "currencies": currencies,
     }
     try:
         response = requests.get(BASE_URL, params=params)
         data = response.json()["data"]
 
-        if base in data:
-            converted_data = {ticker: value * amount for ticker, value in data.items()}
-            del converted_data[base]
-            return converted_data
-        else:
-            return {"error": "Invalid currency"}
+        converted_data = {ticker: value * amount for ticker, value in data.items()}
+        return converted_data
     except Exception as e:
         return {"error": str(e)}
 
@@ -72,13 +76,17 @@ def handle_conversion():
     request_data = request.get_json()
 
     base_currency = request_data.get("base_currency")
+    currencies = request_data.get("currencies")
     amount = request_data.get("amount")
 
-    if not base_currency or not amount:
-        return jsonify({"error": "Base currency and amount are required"}), 400
+    if not amount:
+        return (
+            jsonify({"error": "Amount is required"}),
+            400,
+        )
 
     amount = float(amount)
-    converted_data = convert_currency(base_currency.upper(), amount)
+    converted_data = convert_currency(base_currency.upper(), currencies.upper(), amount)
     return jsonify(converted_data)
 
 
