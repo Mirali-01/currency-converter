@@ -46,9 +46,6 @@ CURRENCIES = [
     "ZAR",
 ]
 
-# Example API request
-# API_REQ = f"{BASE_URL}?apikey={API_KEY}&currencies=EUR&base_currency=CAD"
-
 
 def convert_currency(base, currencies, amount):
     if base == "":
@@ -86,7 +83,9 @@ def handle_conversion():
         )
 
     amount = float(amount)
-    converted_data = convert_currency(base_currency.upper(), currencies.upper(), amount)
+    converted_data = convert_currency(
+        base_currency.upper().strip(), currencies.upper().replace(" ", ""), amount
+    )
     return jsonify(converted_data)
 
 

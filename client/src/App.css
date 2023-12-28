@@ -68,12 +68,12 @@
 
   .currency-info{
     margin-bottom: 20px;
-    max-width: 400px;
+    max-width: 300px;
     margin: 0 auto;
     padding: 10px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
-    /* text-align: center; */
+    text-align: center;
   }
   
   h1 {

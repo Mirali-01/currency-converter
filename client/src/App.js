@@ -54,6 +54,7 @@ function App() {
     console.log(CurrencyInfo[currency]);
   };
 
+  // Account for multiple currencies at To:
   return (
     <div className="App">
       <h1>Currency Converter</h1>
@@ -69,14 +70,13 @@ function App() {
       </div>
       {currencyInfo && (
         <div className="currency-info">
-          {Object.entries(currencyInfo).map(([key, value]) => (
-            <tbody>
-              <tr key={key}>
-                <td>{key}</td>
-                <td>{value}</td>
-              </tr>
-            </tbody>
-          ))}
+          {/* <div>{currencyInfo.code}</div>
+          <div>{currencyInfo.decimal_digits}</div> */}
+          <div>{currencyInfo.name}</div>
+          {/* <div>{currencyInfo.name_plural}</div> */}
+          {/* <div>{currencyInfo.rounding}</div> */}
+          <div>{currencyInfo.symbol}</div>
+          {/* <div>{currencyInfo.symbol_native}</div> */}
         </div>
       )}
       <div className="form-container">
@@ -92,7 +92,7 @@ function App() {
           <label>To:</label>
           <input
             type="text"
-            maxLength={3}
+            // maxLength={3}
             value={currencies}
             onChange={handleCurrencyChange}
           />
