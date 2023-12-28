@@ -1,22 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./App.css";
 import CurrencyInfo from "./currencyInfo.json";
+import ScrollToTopButton from "./components/ScrollToTopButton";
+
+const defaultCurrency = "USD";
 
 function App() {
   const [baseCurrency, setBaseCurrency] = useState("");
   const [currencies, setCurrencies] = useState("");
   const [amount, setAmount] = useState("");
   const [conversionData, setConversionData] = useState(null);
-  const [currencyInfo, setCurrencyInfo] = useState([]);
+  const [currencyInfo, setCurrencyInfo] = useState(null);
   const [error, setError] = useState(null);
+  const tableRef = useRef(null);
+
+  useEffect(() => {
+    if (tableRef.current) {
+      tableRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    }
+  }, [conversionData]);
 
   const handleClear = () => {
     setBaseCurrency("");
     setCurrencies("");
     setAmount("");
     setConversionData(null);
-    setCurrencyInfo([]);
+    setCurrencyInfo(CurrencyInfo[defaultCurrency]);
     setError(null);
   };
 
@@ -51,10 +61,16 @@ function App() {
 
   const handleCurrencyInfoClick = (currency) => {
     setCurrencyInfo(CurrencyInfo[currency]);
-    console.log(CurrencyInfo[currency]);
   };
 
-  // Account for multiple currencies at To:
+  const setDefaultCurrencyInfo = () => {
+    setCurrencyInfo(CurrencyInfo[defaultCurrency]);
+  };
+
+  useEffect(() => {
+    setDefaultCurrencyInfo();
+  }, []);
+
   return (
     <div className="App">
       <h1>Currency Converter</h1>
@@ -68,15 +84,15 @@ function App() {
           ))}
         </ul>
       </div>
-      {currencyInfo && (
+      {currencyInfo ? (
         <div className="currency-info">
-          {/* <div>{currencyInfo.code}</div>
-          <div>{currencyInfo.decimal_digits}</div> */}
           <div>{currencyInfo.name}</div>
-          {/* <div>{currencyInfo.name_plural}</div> */}
-          {/* <div>{currencyInfo.rounding}</div> */}
           <div>{currencyInfo.symbol}</div>
-          {/* <div>{currencyInfo.symbol_native}</div> */}
+        </div>
+      ) : (
+        <div className="currency-info">
+          <div>USD</div>
+          <div>$</div>
         </div>
       )}
       <div className="form-container">
@@ -92,14 +108,19 @@ function App() {
           <label>To:</label>
           <input
             type="text"
-            // maxLength={3}
+            placeholder="ALL"
             value={currencies}
             onChange={handleCurrencyChange}
           />
         </div>
         <div className="input-container">
           <label>Amount:</label>
-          <input type="text" value={amount} onChange={handleAmountChange} />
+          <input
+            type="text"
+            placeholder="1"
+            value={amount}
+            onChange={handleAmountChange}
+          />
         </div>
       </div>
       <div className="buttons-container">
@@ -110,7 +131,7 @@ function App() {
       {error && <p>{error}</p>}
 
       {conversionData && (
-        <div>
+        <div ref={tableRef}>
           <h2>Converted Amounts</h2>
           <table>
             <thead>
@@ -130,6 +151,7 @@ function App() {
           </table>
         </div>
       )}
+      <ScrollToTopButton />
     </div>
   );
 }

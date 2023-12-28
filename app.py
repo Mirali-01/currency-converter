@@ -48,11 +48,6 @@ CURRENCIES = [
 
 
 def convert_currency(base, currencies, amount):
-    if base == "":
-        base = ""
-    if currencies == "":
-        currencies = ""
-
     params = {
         "apikey": API_KEY,
         "base_currency": base,
@@ -77,10 +72,7 @@ def handle_conversion():
     amount = request_data.get("amount")
 
     if not amount:
-        return (
-            jsonify({"error": "Amount is required"}),
-            400,
-        )
+        amount = 1
 
     amount = float(amount)
     converted_data = convert_currency(
