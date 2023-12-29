@@ -1,13 +1,4 @@
 {
-  "EUR": {
-    "symbol": "€",
-    "name": "Euro",
-    "symbol_native": "€",
-    "decimal_digits": 2,
-    "rounding": 0,
-    "code": "EUR",
-    "name_plural": "Euros"
-  },
   "USD": {
     "symbol": "$",
     "name": "US Dollar",
@@ -16,6 +7,15 @@
     "rounding": 0,
     "code": "USD",
     "name_plural": "US dollars"
+  },
+  "EUR": {
+    "symbol": "€",
+    "name": "Euro",
+    "symbol_native": "€",
+    "decimal_digits": 2,
+    "rounding": 0,
+    "code": "EUR",
+    "name_plural": "Euros"
   },
   "JPY": {
     "symbol": "¥",

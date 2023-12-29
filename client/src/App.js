@@ -32,11 +32,9 @@ function App() {
 
   const handleConvert = async () => {
     try {
-      const convertedBaseCurrencies = baseCurrency === "" ? "" : baseCurrency;
-      const convertedCurrencies = currencies === "" ? "" : currencies;
       const response = await axios.post("http://localhost:5000/convert", {
-        base_currency: convertedBaseCurrencies,
-        currencies: convertedCurrencies,
+        base_currency: baseCurrency,
+        currencies: currencies,
         amount: amount,
       });
       setConversionData(response.data);
@@ -71,6 +69,10 @@ function App() {
     setDefaultCurrencyInfo();
   }, []);
 
+  const handleOptionsChange = (e) => {
+    setBaseCurrency(e.target.value);
+  };
+
   return (
     <div className="App">
       <h1>Currency Converter</h1>
@@ -96,8 +98,8 @@ function App() {
         </div>
       )}
       <div className="form-container">
+        <label>From:</label>
         <div className="input-container">
-          <label>From:</label>
           <input
             type="text"
             maxLength={3}
@@ -105,23 +107,28 @@ function App() {
             value={baseCurrency}
             onChange={handleBaseCurrencyChange}
           />
-          <label>To:</label>
-          <input
-            type="text"
-            placeholder="ALL"
-            value={currencies}
-            onChange={handleCurrencyChange}
-          />
+          <select id="base" value={baseCurrency} onChange={handleOptionsChange}>
+            {Object.keys(CurrencyInfo).map((currency, index) => (
+              <option key={index} value={currency}>
+                {currency}
+              </option>
+            ))}
+          </select>
         </div>
-        <div className="input-container">
-          <label>Amount:</label>
-          <input
-            type="text"
-            placeholder="1"
-            value={amount}
-            onChange={handleAmountChange}
-          />
-        </div>
+        <label>To:</label>
+        <input
+          type="text"
+          placeholder="ALL"
+          value={currencies}
+          onChange={handleCurrencyChange}
+        />
+        <label>Amount:</label>
+        <input
+          type="text"
+          placeholder="1"
+          value={amount}
+          onChange={handleAmountChange}
+        />
       </div>
       <div className="buttons-container">
         <button onClick={handleConvert}>Convert</button>

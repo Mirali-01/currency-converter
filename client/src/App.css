@@ -101,7 +101,12 @@
     font-weight: bold;
   }
 
-  input[type="text"]{
+  .input-container{
+    display: flex;
+    /* border: solid 1px var(--border-color); */
+  }
+
+  input[type="text"], select{
     background-color: var(--background-color);
     color: var(--text-color);
     width: calc(100% - 18px); 
@@ -110,6 +115,10 @@
     border: 1px solid var(--border-color);
     font-size: 1em;
     margin-bottom: 10px;
+  }
+
+  select {
+    width: 10px;
   }
   
   .buttons-container {

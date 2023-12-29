@@ -63,6 +63,7 @@ def convert_currency(base, currencies, amount):
         return {"error": str(e)}
 
 
+# code in BD taka
 @app.route("/convert", methods=["POST"])
 def handle_conversion():
     request_data = request.get_json()
@@ -76,7 +77,9 @@ def handle_conversion():
 
     amount = float(amount)
     converted_data = convert_currency(
-        base_currency.upper().strip(), currencies.upper().replace(" ", ""), amount
+        base_currency.upper().replace(" ", "").strip(),
+        currencies.upper().replace(" ", "").strip(","),
+        amount,
     )
     return jsonify(converted_data)
 
