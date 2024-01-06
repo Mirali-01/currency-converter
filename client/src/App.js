@@ -77,7 +77,18 @@ function App() {
     <div className="App">
       <h1>Currency Converter</h1>
       <div className="currency-list">
-        <h2>Available Currencies</h2>
+        <h2>Currencies</h2>
+        {currencyInfo ? (
+          <div className="currency-info">
+            <div>{currencyInfo.name}</div>
+            <div>{currencyInfo.symbol}</div>
+          </div>
+        ) : (
+          <div className="currency-info">
+            <div>USD</div>
+            <div>$</div>
+          </div>
+        )}
         <ul>
           {Object.keys(CurrencyInfo).map((currency, index) => (
             <li key={index} onClick={() => handleCurrencyInfoClick(currency)}>
@@ -86,17 +97,6 @@ function App() {
           ))}
         </ul>
       </div>
-      {currencyInfo ? (
-        <div className="currency-info">
-          <div>{currencyInfo.name}</div>
-          <div>{currencyInfo.symbol}</div>
-        </div>
-      ) : (
-        <div className="currency-info">
-          <div>USD</div>
-          <div>$</div>
-        </div>
-      )}
       <div className="form-container">
         <label>From:</label>
         <div className="input-container">
@@ -107,7 +107,11 @@ function App() {
             value={baseCurrency}
             onChange={handleBaseCurrencyChange}
           />
-          <select id="base" value={baseCurrency} onChange={handleOptionsChange}>
+          <select
+            id="baseCurrency"
+            value={baseCurrency}
+            onChange={handleOptionsChange}
+          >
             {Object.keys(CurrencyInfo).map((currency, index) => (
               <option key={index} value={currency}>
                 {currency}

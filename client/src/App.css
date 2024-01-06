@@ -2,7 +2,7 @@
     --primary-color: #3498db; 
     --primary-hover-color: #2980b9; 
     --border-color: #444; 
-    --background-color: #222; 
+    --background-color: rgb(6, 35, 45);
     --text-color: #fff; 
     --table-header-color: #333; 
     --table-border-color: #ddd;
@@ -26,19 +26,14 @@
   }
   
   .currency-list {
+    text-align: center;
     margin-bottom: 20px;
     max-width: 600px;
-    margin: 0 auto;
     padding: 10px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
   }
-  
-  .currency-list h2 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-  
+
   .currency-list ul {
     list-style: none;
     padding: 0;
@@ -62,10 +57,6 @@
     background-color: var(--text-color);
     color: var(--background-color);
   }
-  
-  .currency-list li span {
-    margin-right: 5px;
-  }
 
   .currency-info{
     margin-bottom: 20px;
@@ -74,22 +65,16 @@
     padding: 10px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
+    font-size: 1.25em;
   }
   
   h2 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
+    font-size: 1.75em;
   }
   
   .form-container {
     max-width: 300px;
-    margin: 0 auto;
+    margin-top: 10px;
     padding: 20px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
@@ -102,8 +87,7 @@
   }
 
   .input-container{
-    display: flex;
-    /* border: solid 1px var(--border-color); */
+    position: relative;
   }
 
   input[type="text"], select{
@@ -119,6 +103,10 @@
 
   select {
     width: 10px;
+    position: absolute;
+    right: 4px;
+    background-color: transparent;
+    border: none;
   }
   
   .buttons-container {
