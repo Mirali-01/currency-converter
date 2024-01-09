@@ -6,7 +6,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "USD",
-    "name_plural": "US dollars"
+    "name_plural": "US dollars",
+    "flag": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
   },
   "EUR": {
     "symbol": "€",
@@ -15,7 +16,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "EUR",
-    "name_plural": "Euros"
+    "name_plural": "Euros",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg"
   },
   "JPY": {
     "symbol": "¥",
@@ -24,7 +26,8 @@
     "decimal_digits": 0,
     "rounding": 0,
     "code": "JPY",
-    "name_plural": "Japanese yen"
+    "name_plural": "Japanese yen",
+    "flag": "https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg"
   },
   "BGN": {
     "symbol": "BGN",
@@ -33,7 +36,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "BGN",
-    "name_plural": "Bulgarian leva"
+    "name_plural": "Bulgarian leva",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Bulgaria.svg"
   },
   "CZK": {
     "symbol": "Kč",
@@ -42,7 +46,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "CZK",
-    "name_plural": "Czech Republic korunas"
+    "name_plural": "Czech Republic korunas",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_Czech_Republic.svg"
   },
   "DKK": {
     "symbol": "Dkr",
@@ -51,7 +56,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "DKK",
-    "name_plural": "Danish kroner"
+    "name_plural": "Danish kroner",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Denmark.svg"
   },
   "GBP": {
     "symbol": "£",
@@ -60,7 +66,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "GBP",
-    "name_plural": "British pounds sterling"
+    "name_plural": "British pounds sterling",
+    "flag": "https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
   },
   "HUF": {
     "symbol": "Ft",
@@ -69,7 +76,8 @@
     "decimal_digits": 0,
     "rounding": 0,
     "code": "HUF",
-    "name_plural": "Hungarian forints"
+    "name_plural": "Hungarian forints",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg"
   },
   "PLN": {
     "symbol": "zł",
@@ -78,7 +86,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "PLN",
-    "name_plural": "Polish zlotys"
+    "name_plural": "Polish zlotys",
+    "flag": "https://upload.wikimedia.org/wikipedia/en/1/12/Flag_of_Poland.svg"
   },
   "RON": {
     "symbol": "RON",
@@ -87,7 +96,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "RON",
-    "name_plural": "Romanian lei"
+    "name_plural": "Romanian lei",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg"
   },
   "SEK": {
     "symbol": "Skr",
@@ -96,7 +106,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "SEK",
-    "name_plural": "Swedish kronor"
+    "name_plural": "Swedish kronor",
+    "flag": "https://upload.wikimedia.org/wikipedia/en/4/4c/Flag_of_Sweden.svg"
   },
   "CHF": {
     "symbol": "CHF",
@@ -105,7 +116,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "CHF",
-    "name_plural": "Swiss francs"
+    "name_plural": "Swiss francs",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Switzerland.svg"
   },
   "ISK": {
     "symbol": "Ikr",
@@ -114,7 +126,8 @@
     "decimal_digits": 0,
     "rounding": 0,
     "code": "ISK",
-    "name_plural": "Icelandic krónur"
+    "name_plural": "Icelandic krónur",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Iceland.svg"
   },
   "NOK": {
     "symbol": "Nkr",
@@ -123,7 +136,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "NOK",
-    "name_plural": "Norwegian kroner"
+    "name_plural": "Norwegian kroner",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg"
   },
   "HRK": {
     "symbol": "kn",
@@ -132,7 +146,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "HRK",
-    "name_plural": "Croatian kunas"
+    "name_plural": "Croatian kunas",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Croatia.svg"
   },
   "RUB": {
     "symbol": "RUB",
@@ -141,7 +156,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "RUB",
-    "name_plural": "Russian rubles"
+    "name_plural": "Russian rubles",
+    "flag": "https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg"
   },
   "TRY": {
     "symbol": "TL",
@@ -150,7 +166,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "TRY",
-    "name_plural": "Turkish Lira"
+    "name_plural": "Turkish Lira",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Turkey.svg"
   },
   "AUD": {
     "symbol": "AU$",
@@ -159,7 +176,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "AUD",
-    "name_plural": "Australian dollars"
+    "name_plural": "Australian dollars",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_Australia.svg"
   },
   "BRL": {
     "symbol": "R$",
@@ -168,7 +186,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "BRL",
-    "name_plural": "Brazilian reals"
+    "name_plural": "Brazilian reals",
+    "flag": "https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg"
   },
   "CAD": {
     "symbol": "CA$",
@@ -177,7 +196,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "CAD",
-    "name_plural": "Canadian dollars"
+    "name_plural": "Canadian dollars",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg"
   },
   "CNY": {
     "symbol": "CN¥",
@@ -186,7 +206,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "CNY",
-    "name_plural": "Chinese yuan"
+    "name_plural": "Chinese yuan",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg"
   },
   "HKD": {
     "symbol": "HK$",
@@ -195,7 +216,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "HKD",
-    "name_plural": "Hong Kong dollars"
+    "name_plural": "Hong Kong dollars",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Flag_of_Hong_Kong.svg"
   },
   "IDR": {
     "symbol": "Rp",
@@ -204,7 +226,8 @@
     "decimal_digits": 0,
     "rounding": 0,
     "code": "IDR",
-    "name_plural": "Indonesian rupiahs"
+    "name_plural": "Indonesian rupiahs",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg"
   },
   "ILS": {
     "symbol": "₪",
@@ -213,7 +236,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "ILS",
-    "name_plural": "Israeli new sheqels"
+    "name_plural": "Israeli new sheqels",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg"
   },
   "INR": {
     "symbol": "Rs",
@@ -222,7 +246,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "INR",
-    "name_plural": "Indian rupees"
+    "name_plural": "Indian rupees",
+    "flag": "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"
   },
   "KRW": {
     "symbol": "₩",
@@ -231,7 +256,8 @@
     "decimal_digits": 0,
     "rounding": 0,
     "code": "KRW",
-    "name_plural": "South Korean won"
+    "name_plural": "South Korean won",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg"
   },
   "MXN": {
     "symbol": "MX$",
@@ -240,7 +266,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "MXN",
-    "name_plural": "Mexican pesos"
+    "name_plural": "Mexican pesos",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg"
   },
   "MYR": {
     "symbol": "RM",
@@ -249,7 +276,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "MYR",
-    "name_plural": "Malaysian ringgits"
+    "name_plural": "Malaysian ringgits",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg"
   },
   "NZD": {
     "symbol": "NZ$",
@@ -258,7 +286,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "NZD",
-    "name_plural": "New Zealand dollars"
+    "name_plural": "New Zealand dollars",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg"
   },
   "PHP": {
     "symbol": "₱",
@@ -267,7 +296,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "PHP",
-    "name_plural": "Philippine pesos"
+    "name_plural": "Philippine pesos",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_the_Philippines.svg"
   },
   "SGD": {
     "symbol": "S$",
@@ -276,7 +306,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "SGD",
-    "name_plural": "Singapore dollars"
+    "name_plural": "Singapore dollars",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Singapore.svg"
   },
   "THB": {
     "symbol": "฿",
@@ -285,7 +316,8 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "THB",
-    "name_plural": "Thai baht"
+    "name_plural": "Thai baht",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg"
   },
   "ZAR": {
     "symbol": "R",
@@ -294,6 +326,7 @@
     "decimal_digits": 2,
     "rounding": 0,
     "code": "ZAR",
-    "name_plural": "South African rand"
+    "name_plural": "South African rand",
+    "flag": "https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg"
   }
 }
