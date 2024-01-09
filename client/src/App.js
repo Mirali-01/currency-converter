@@ -14,12 +14,15 @@ function App() {
   const [currencyInfo, setCurrencyInfo] = useState(null);
   const [error, setError] = useState(null);
   const tableRef = useRef(null);
+  const errorRef = useRef(null);
 
   useEffect(() => {
-    if (tableRef.current) {
+    if (tableRef.current && conversionData) {
       tableRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    } else if (errorRef.current && error) {
+      errorRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }, [conversionData]);
+  }, [conversionData, error]);
 
   const handleClear = () => {
     setBaseCurrency("");
@@ -69,26 +72,34 @@ function App() {
     setDefaultCurrencyInfo();
   }, []);
 
-  const handleOptionsChange = (e) => {
-    setBaseCurrency(e.target.value);
-  };
-
   return (
     <div className="App">
       <h1>Currency Converter</h1>
       <div className="currency-list">
         <h2>Currencies</h2>
-        {currencyInfo ? (
-          <div className="currency-info">
-            <div>{currencyInfo.name}</div>
-            <div>{currencyInfo.symbol}</div>
-          </div>
-        ) : (
-          <div className="currency-info">
-            <div>USD</div>
-            <div>$</div>
-          </div>
-        )}
+        <div>
+          {currencyInfo ? (
+            <img src={currencyInfo.flag} alt="national flag" />
+          ) : (
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+              alt="USA national flag"
+            />
+          )}
+        </div>
+        <div className="currency-info">
+          {currencyInfo ? (
+            <>
+              <div>{currencyInfo.name}</div>
+              <div>{currencyInfo.symbol}</div>
+            </>
+          ) : (
+            <>
+              <div>USD</div>
+              <div>$</div>
+            </>
+          )}
+        </div>
         <ul>
           {Object.keys(CurrencyInfo).map((currency, index) => (
             <li key={index} onClick={() => handleCurrencyInfoClick(currency)}>
@@ -110,7 +121,7 @@ function App() {
           <select
             id="baseCurrency"
             value={baseCurrency}
-            onChange={handleOptionsChange}
+            onChange={handleBaseCurrencyChange}
           >
             {Object.keys(CurrencyInfo).map((currency, index) => (
               <option key={index} value={currency}>
@@ -139,7 +150,11 @@ function App() {
         <button onClick={handleClear}>Clear</button>
       </div>
 
-      {error && <p>{error}</p>}
+      {error && (
+        <div ref={errorRef}>
+          <p>{error}</p>
+        </div>
+      )}
 
       {conversionData && (
         <div ref={tableRef}>
