@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #3498db; 
-    --primary-hover-color: #2980b9; 
+    --primary-color: #2487c8; 
+    --primary-hover-color: #10649b; 
     --border-color: #444; 
     --background-color: rgb(6, 35, 45);
     --text-color: #fff; 
@@ -23,6 +23,12 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+  }
+
+  img{
+    border: 1px solid var(--border-color);
+    height: 100px;
+    margin-bottom: 20px;
   }
   
   .currency-list {
