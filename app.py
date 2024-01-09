@@ -55,7 +55,12 @@ def convert_currency(base, currencies, amount):
     }
     try:
         response = requests.get(BASE_URL, params=params)
-        data = response.json()["data"]
+        if response.status_code != 200:
+            raise Exception(f"Failed to fetch data: {response.status_code}")
+
+        data = response.json().get("data")
+        if not data:
+            raise Exception("Data not available for conversion")
 
         converted_data = {ticker: value * amount for ticker, value in data.items()}
         return converted_data
@@ -83,7 +88,11 @@ def handle_conversion():
         currencies.upper().replace(" ", "").strip(","),
         amount,
     )
-    return jsonify(converted_data)
+
+    if "error" in converted_data:
+        return jsonify({"error": converted_data["error"]}), 500
+    else:
+        return jsonify(converted_data)
 
 
 if __name__ == "__main__":
