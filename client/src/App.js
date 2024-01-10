@@ -53,7 +53,9 @@ function App() {
   };
 
   const handleCurrencyChange = (e) => {
-    setCurrencies(e.target.value);
+    const selectedCurrencies = e.target.value;
+    const updatedCurrencies = currencies + selectedCurrencies + ",";
+    setCurrencies(updatedCurrencies);
   };
 
   const handleAmountChange = (e) => {
@@ -62,6 +64,7 @@ function App() {
 
   const handleCurrencyInfoClick = (currency) => {
     setCurrencyInfo(CurrencyInfo[currency]);
+    setBaseCurrency(currency);
   };
 
   const setDefaultCurrencyInfo = () => {
@@ -112,9 +115,9 @@ function App() {
         <label>From:</label>
         <div className="input-container">
           <input
+            disabled
             type="text"
             maxLength={3}
-            placeholder="USD"
             value={baseCurrency}
             onChange={handleBaseCurrencyChange}
           />
@@ -123,6 +126,7 @@ function App() {
             value={baseCurrency}
             onChange={handleBaseCurrencyChange}
           >
+            <option value="">Select</option>
             {Object.keys(CurrencyInfo).map((currency, index) => (
               <option key={index} value={currency}>
                 {currency}
@@ -130,13 +134,27 @@ function App() {
             ))}
           </select>
         </div>
-        <label>To:</label>
-        <input
-          type="text"
-          placeholder="ALL"
-          value={currencies}
-          onChange={handleCurrencyChange}
-        />
+        <div className="input-container">
+          <label>To:</label>
+          <input
+            disabled
+            type="text"
+            value={currencies}
+            onChange={() => handleCurrencyChange}
+          />
+          <select
+            id="currencies"
+            value={currencies}
+            onChange={handleCurrencyChange}
+          >
+            <option value="">Select</option>
+            {Object.keys(CurrencyInfo).map((currency, index) => (
+              <option key={index} value={currency}>
+                {currency}
+              </option>
+            ))}
+          </select>
+        </div>
         <label>Amount:</label>
         <input
           type="text"
