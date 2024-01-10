@@ -29,6 +29,7 @@
     border: 1px solid var(--border-color);
     height: 100px;
     margin-bottom: 20px;
+    border-radius: 5px;
   }
   
   .currency-list {
@@ -43,9 +44,18 @@
   .currency-list ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(4, 1fr);
+    @media (width <= 320px) {
+      grid-template-columns: repeat(3, 1fr);
+    };
+    @media (768px <= width < 1024px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @media (width >= 1024px) {
+      grid-template-columns: repeat(8, 1fr);
+    }
   }
   
   .currency-list li {
@@ -54,8 +64,6 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
   }
   
   .currency-list li:hover {
@@ -113,6 +121,7 @@
     right: 4px;
     background-color: transparent;
     border: none;
+    cursor: pointer;
   }
   
   .buttons-container {
